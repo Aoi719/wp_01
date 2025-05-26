@@ -6,6 +6,9 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 35px;
+  @include mq {
+    grid-template-columns: repeat(2, 1fr);
+  }
   .grid-item {
     .grid-item__img {
       max-width: 100%;
