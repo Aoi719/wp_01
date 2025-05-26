@@ -1,0 +1,20 @@
+@use "../settings/variables" as *;
+@use "../settings/functions" as *;
+@use "../mixins/breakpoints" as *;
+
+.footer {
+  &__inner {
+    background-color: $main-color-01;
+    padding: 30px;
+    color: $text-color-white;
+    @include mq() {
+      padding: 16px;
+    }
+  }
+  &__copy {
+    text-align: center;
+    @include mq() {
+      font-size: fz(14);
+    }
+  }
+}

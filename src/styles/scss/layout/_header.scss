@@ -1,0 +1,132 @@
+@use "../settings/variables" as *;
+@use "../settings/functions" as *;
+@use "../mixins/breakpoints" as *;
+
+.header {
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+    position: relative;
+    @include mq() {
+      padding: 16px;
+      align-items: center;
+    }
+  }
+  &__logo {
+    flex-shrink: 0;
+    @include mq(lg) {
+      width: 150px;
+    }
+    a {
+      display: flex;
+      transition: opacity 0.3s;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+  &__hamburger {
+    display: none;
+    @include mq() {
+      display: block;
+    }
+    &-button {
+      width: 32px;
+      height: 32px;
+      vertical-align: bottom;
+      border: none;
+      background-color: #fff;
+    }
+    &-bar-wrap {
+      width: 100%;
+      display: block;
+      height: 24px;
+      position: relative;
+    }
+    &-bar {
+      width: 100%;
+      border: 1px solid #000;
+      display: block;
+      position: absolute;
+      transition:
+        opacity 0.3s,
+        transform 0.3s;
+      &:nth-child(1) {
+        top: 0;
+        .is-open & {
+          transform: rotate(45deg) translate(8px, 8px);
+        }
+      }
+      &:nth-child(2) {
+        top: 50%;
+        transform: translate(0, -50%);
+        .is-open & {
+          opacity: 0;
+        }
+      }
+      &:nth-child(3) {
+        bottom: 0;
+        .is-open & {
+          transform: rotate(-45deg) translate(8px, -8px);
+        }
+      }
+    }
+  }
+  &__nav {
+    display: block;
+    @include mq() {
+      display: none;
+      position: absolute;
+      top: 66px;
+      left: 0;
+      right: 0;
+      width: 100%;
+      z-index: 99;
+      background: #ffff;
+      border-top: 1px solid #000;
+    }
+  }
+  &__nav-inner {
+    padding: 16px;
+  }
+  &__nav-list {
+    display: flex;
+    @include mq() {
+      flex-direction: column;
+    }
+  }
+  &__nav-list-item {
+    & + & {
+      margin-left: 32px;
+      margin-left: clamp(20px, 2.6vw, 32px);
+      @include mq() {
+        margin-left: 0;
+        margin-top: 16px;
+      }
+    }
+    > a {
+      text-decoration: none;
+      color: $main-color-01;
+      font-weight: bold;
+      font-size: fz(18);
+      font-size: clamp(fz(14), 1.82vw, fz(18));
+      position: relative;
+      padding-bottom: 8px;
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 4px;
+        background: $main-color-02;
+        transition: width 0.2s ease-in;
+      }
+      &:hover::before {
+        width: 100%;
+      }
+    }
+  }
+}
