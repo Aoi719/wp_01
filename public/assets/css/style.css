@@ -91,7 +91,7 @@ meter {
 body {
   font-family: "Meiryo", serif;
   color: #333;
-  font-size: 1rem;
+  font-size: 0.875rem;
   line-height: 1.7;
 }
 @media screen and (max-width: 900px) {
@@ -219,7 +219,6 @@ a:hover {
 .header .header__nav-wrap .header__link li a {
   color: #fff;
   text-decoration: none;
-  font-size: 0.875rem;
   text-transform: uppercase;
 }
 
@@ -416,6 +415,10 @@ a:hover {
 
 .ml-xxxl {
   margin-left: 180px;
+}
+
+.mi-initial {
+  margin-inline: initial !important;
 }
 
 .mt-5 {
@@ -852,17 +855,62 @@ a:hover {
   padding: 0 40px;
   margin-inline: auto;
 }
-.section.inner-s .section-inner {
+.section .inner-s {
   max-width: 600px;
 }
-.section.inner-m .section-inner {
+.section .inner-m {
   max-width: 800px;
 }
 
-.more {
+.primary-heading {
+  font-family: "Arial", "sans-serif";
+  margin-bottom: 32px;
+  font-weight: 400;
+  font-size: 0.875rem;
+}
+
+.article-box {
+  display: flex;
+}
+@media screen and (max-width: 900px) {
+  .article-box {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 900px) {
+  .article-box .article-box__item:first-child {
+    margin-bottom: 32px;
+  }
+}
+@media screen and (min-width: 900px) {
+  .article-box .article-box__item:first-child {
+    margin-right: 64px;
+  }
+}
+.article-box .article-box__img {
+  flex: 0 0 50%;
+}
+@media screen and (max-width: 900px) {
+  .article-box .article-box__img {
+    flex: 0 0 100%;
+    text-align: center;
+  }
+}
+.center-link {
   text-align: center;
   margin: 40px 0;
 }
-.more a {
-  font-size: 0.875rem;
+
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+.pagination .pagination__item {
+  margin-right: 40px;
+}
+.info-list .info-list__row {
+  display: flex;
+}
+.info-list .info-list__term {
+  width: 30%;
 }

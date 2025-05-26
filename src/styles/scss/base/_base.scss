@@ -12,7 +12,7 @@
 body {
   font-family: "Meiryo", serif;
   color: $text-color;
-  font-size: fz(16);
+  font-size: fz(14);
   line-height: 1.7;
   @include mq() {
     font-size: fz(14);

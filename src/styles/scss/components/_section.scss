@@ -8,14 +8,10 @@
     padding: 0 40px;
     margin-inline: auto;
   }
-  &.inner-s {
-    .section-inner {
-      max-width: 600px;
-    }
+  .inner-s {
+    max-width: 600px;
   }
-  &.inner-m {
-    .section-inner {
-      max-width: 800px;
-    }
+  .inner-m {
+    max-width: 800px;
   }
 }

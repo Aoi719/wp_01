@@ -101,6 +101,10 @@
   margin-left: $xxxl;
 }
 
+.mi-initial {
+  margin-inline: initial !important;
+}
+
 // 5刻み
 @for $i from 1 through 10 {
   $num: $i * 5;

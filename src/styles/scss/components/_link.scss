@@ -2,10 +2,18 @@
 @use "../settings/functions" as *;
 @use "../mixins/breakpoints" as *;
 
-.more {
+.center-link {
   text-align: center;
   margin: 40px 0;
-  a {
-    font-size: fz(14);
+}
+.pagination-wrap {
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  .pagination__item {
+    margin-right: 40px;
+  }
+  .pagination__link {
   }
 }
