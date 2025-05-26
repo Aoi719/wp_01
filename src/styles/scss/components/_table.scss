@@ -1,0 +1,22 @@
+@use "../settings/variables" as *;
+@use "../settings/functions" as *;
+@use "../mixins/breakpoints" as *;
+
+.table {
+  table-layout: fixed;
+  width: 100%;
+  tr {
+    border-bottom: 1px solid #dcdbdb;
+  }
+  th {
+    margin-block: $leading-trim;
+    padding: 24px 12px 24px 12px;
+    width: 30%;
+    text-align: left;
+    font-weight: 400;
+  }
+  td {
+    margin-block: $leading-trim;
+    padding: 24px 0;
+  }
+}

@@ -896,6 +896,25 @@ a:hover {
     text-align: center;
   }
 }
+.table {
+  table-layout: fixed;
+  width: 100%;
+}
+.table tr {
+  border-bottom: 1px solid #dcdbdb;
+}
+.table th {
+  margin-block: calc((1em - 1lh) / 2);
+  padding: 24px 12px 24px 12px;
+  width: 30%;
+  text-align: left;
+  font-weight: 400;
+}
+.table td {
+  margin-block: calc((1em - 1lh) / 2);
+  padding: 24px 0;
+}
+
 .center-link {
   text-align: center;
   margin: 40px 0;
