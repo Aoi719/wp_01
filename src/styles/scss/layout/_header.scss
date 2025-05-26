@@ -3,130 +3,101 @@
 @use "../mixins/breakpoints" as *;
 
 .header {
-  &__inner {
+  position: fixed;
+  top: 0;
+  z-index: 99;
+  background: #fff;
+  width: 100%;
+  .header__inner {
+    max-width: 1360px;
+    padding: 32px 40px;
+    margin-inline: auto;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 24px;
-    position: relative;
-    @include mq() {
-      padding: 16px;
-      align-items: center;
-    }
   }
-  &__logo {
-    flex-shrink: 0;
-    @include mq(lg) {
-      width: 150px;
-    }
+  .header__logo {
+    margin-block: $leading-trim;
     a {
-      display: flex;
-      transition: opacity 0.3s;
+      font-family: "Arial", "sans-serif";
+      font-weight: bold;
+      text-decoration: none;
+      font-size: fz(22.5);
+      color: $text-color;
       &:hover {
         opacity: 0.7;
       }
     }
   }
-  &__hamburger {
-    display: none;
-    @include mq() {
-      display: block;
-    }
-    &-button {
-      width: 32px;
-      height: 32px;
-      vertical-align: bottom;
+  .header__nav-wrap {
+    position: relative;
+    .header__nav-button {
+      position: relative;
+      width: 30px;
+      height: 30px;
+      background: none;
       border: none;
-      background-color: #fff;
-    }
-    &-bar-wrap {
-      width: 100%;
-      display: block;
-      height: 24px;
-      position: relative;
-    }
-    &-bar {
-      width: 100%;
-      border: 1px solid #000;
-      display: block;
-      position: absolute;
-      transition:
-        opacity 0.3s,
-        transform 0.3s;
-      &:nth-child(1) {
-        top: 0;
-        .is-open & {
-          transform: rotate(45deg) translate(8px, 8px);
-        }
-      }
-      &:nth-child(2) {
-        top: 50%;
-        transform: translate(0, -50%);
-        .is-open & {
-          opacity: 0;
-        }
-      }
-      &:nth-child(3) {
-        bottom: 0;
-        .is-open & {
-          transform: rotate(-45deg) translate(8px, -8px);
-        }
-      }
-    }
-  }
-  &__nav {
-    display: block;
-    @include mq() {
-      display: none;
-      position: absolute;
-      top: 66px;
-      left: 0;
-      right: 0;
-      width: 100%;
-      z-index: 99;
-      background: #ffff;
-      border-top: 1px solid #000;
-    }
-  }
-  &__nav-inner {
-    padding: 16px;
-  }
-  &__nav-list {
-    display: flex;
-    @include mq() {
+      cursor: pointer;
+      z-index: 1001;
+      display: flex;
       flex-direction: column;
+      justify-content: center;
+      gap: 6px;
+      &.is-active .header__nav-button-bar {
+        background-color: #fff;
+      }
+      &.is-active .header__nav-button-bar:nth-child(1) {
+        transform: rotate(45deg) translate(4px, 4px);
+      }
+      &.is-active .header__nav-button-bar:nth-child(2) {
+        transform: rotate(-45deg) translate(2px, -2px);
+      }
+      &.is-active + .header__nav .header__link {
+        animation: headerNavSlide 0.5s ease-in-out;
+      }
+    }
+    .header__nav-button-bar {
+      display: block;
+      width: 30px;
+      height: 2px;
+      background-color: #000;
+      transition: transform 0.3s ease;
+      z-index: 99;
+    }
+    .header__nav {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: none;
+      z-index: 1000;
+      &.is-active {
+        display: block;
+      }
+    }
+    .header__link {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      width: fit-content;
+      padding: 36px 50px;
+      li {
+        margin-block: $leading-trim;
+        margin-bottom: 14px;
+        a {
+          color: #fff;
+          text-decoration: none;
+          font-size: fz(14);
+          text-transform: uppercase;
+        }
+      }
     }
   }
-  &__nav-list-item {
-    & + & {
-      margin-left: 32px;
-      margin-left: clamp(20px, 2.6vw, 32px);
-      @include mq() {
-        margin-left: 0;
-        margin-top: 16px;
-      }
-    }
-    > a {
-      text-decoration: none;
-      color: $main-color-01;
-      font-weight: bold;
-      font-size: fz(18);
-      font-size: clamp(fz(14), 1.82vw, fz(18));
-      position: relative;
-      padding-bottom: 8px;
-      &::before {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 0;
-        height: 4px;
-        background: $main-color-02;
-        transition: width 0.2s ease-in;
-      }
-      &:hover::before {
-        width: 100%;
-      }
-    }
+}
+
+@keyframes headerNavSlide {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
   }
 }

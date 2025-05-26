@@ -1,0 +1,11 @@
+@use "../settings/variables" as *;
+@use "../settings/functions" as *;
+@use "../mixins/breakpoints" as *;
+
+.more {
+  text-align: center;
+  margin: 40px 0;
+  a {
+    font-size: fz(14);
+  }
+}
