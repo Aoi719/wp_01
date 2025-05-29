@@ -904,15 +904,18 @@ a:hover {
   border-bottom: 1px solid #dcdbdb;
 }
 .table th {
+  border: none !important;
   margin-block: calc((1em - 1lh) / 2);
-  padding: 24px 12px 24px 12px;
-  width: 30%;
+  padding: 24px 12px 24px 12px !important;
+  width: 30% !important;
+  max-width: 180px;
   text-align: left;
   font-weight: 400;
 }
 .table td {
+  border: none !important;
   margin-block: calc((1em - 1lh) / 2);
-  padding: 24px 0;
+  padding: 24px 0 !important;
 }
 
 .center-link {
