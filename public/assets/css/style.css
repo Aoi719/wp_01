@@ -896,6 +896,9 @@ a:hover {
     text-align: center;
   }
 }
+.article-box .article-box__text {
+  flex-grow: 1;
+}
 .table {
   table-layout: fixed;
   width: 100%;
@@ -934,5 +937,5 @@ a:hover {
   display: flex;
 }
 .info-list .info-list__term {
-  width: 30%;
+  flex: 0 0 30%;
 }

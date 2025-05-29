@@ -7,7 +7,9 @@
     display: flex;
   }
   .info-list__term {
-    width: 30%;
+    // width: 30%;
+    // min-width: 30%;
+    flex: 0 0 30%;
   }
   .info-list_data {
   }
